@@ -27,10 +27,4 @@ public class Motocicleta extends Vehiculo{
 		return "Marca: "+this.getMarca()+" // " +"Modelo: " +this.getModelo()+" // " +"Cilindrada: "
 				+this.getCilindrada()+" // " +"Precio: $" +this.getPrecio();
 	}
-
-	@Override
-	public int compareTo(Vehiculo o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

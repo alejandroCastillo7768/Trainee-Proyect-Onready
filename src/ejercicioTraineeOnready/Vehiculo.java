@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public abstract class Vehiculo implements Comparable<Vehiculo> {
+public abstract class Vehiculo {
 
 	public String marca;
 	public String modelo;
@@ -30,7 +30,6 @@ public abstract class Vehiculo implements Comparable<Vehiculo> {
 	}
 
 	public static void calcularPrecio(List<Vehiculo> vehiculoLista) {
-
 		double max = 0;
 		String marcaMax = null;
 		String modeloMax = null;
@@ -41,7 +40,6 @@ public abstract class Vehiculo implements Comparable<Vehiculo> {
 				marcaMax = vehiculoLista.get(k).getMarca();
 				modeloMax = vehiculoLista.get(k).getModelo();
 			}
-
 		}
 		double min = max;
 		String marcaMin = null;
@@ -58,15 +56,14 @@ public abstract class Vehiculo implements Comparable<Vehiculo> {
 		System.out.println("Vehículo más barato: "+marcaMin +" "+modeloMin);
 	}
 
-	public static void contieneLetra(List<Vehiculo> vehiculoLista, String contiene) {
-
+	public static void contieneLetra(List<Vehiculo> vehiculoLista, String vehiculoContieneLetra) {
 		boolean aux = false;
 
 		for(int l = 0; l < vehiculoLista.size(); l++) {
 
-			aux = vehiculoLista.get(l).getModelo().contains(contiene);
+			aux = vehiculoLista.get(l).getModelo().contains(vehiculoContieneLetra);
 			if(aux) {
-				System.out.println("Vehículo que contiene en el modelo la letra ‘"+contiene+"’: "+vehiculoLista.get(l).getMarca()
+				System.out.println("Vehículo que contiene en el modelo la letra ‘"+vehiculoContieneLetra+"’: "+vehiculoLista.get(l).getMarca()
 						+" "+vehiculoLista.get(l).getModelo()+" $"+ vehiculoLista.get(l).getPrecio());
 			}
 		}
@@ -78,14 +75,13 @@ public abstract class Vehiculo implements Comparable<Vehiculo> {
 			Double vehiculoPrecio1 = v1.getPrecio();
 			Double vehiculoPrecio2 = v2.getPrecio();
 
-			return vehiculoPrecio1.compareTo(vehiculoPrecio2); 
+			return vehiculoPrecio2.compareTo(vehiculoPrecio1); 
 		}
 	};
 
 	public static void ordenarVehiculos(List<Vehiculo> vehiculoLista) {
 
 		Collections.sort(vehiculoLista, Vehiculo.comparatorPrecio);
-
-		for(Vehiculo str: vehiculoLista)System.out.println(str);
+		for(Vehiculo str: vehiculoLista) System.out.println(str.getMarca()+" "+str.getModelo());
 	}
 }

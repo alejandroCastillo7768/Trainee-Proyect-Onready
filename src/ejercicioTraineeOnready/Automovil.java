@@ -28,10 +28,4 @@ public class Automovil extends Vehiculo{
 				+this.getCantidadPuertas()+" // " +"Precio: $" +this.getPrecio();
 	}
 
-	@Override
-	public int compareTo(Vehiculo o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
